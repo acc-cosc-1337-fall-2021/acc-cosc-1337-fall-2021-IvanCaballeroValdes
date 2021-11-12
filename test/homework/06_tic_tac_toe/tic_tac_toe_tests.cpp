@@ -9,7 +9,7 @@ TEST_CASE("Verify Test Configuration", "verification") {
 TEST_CASE("test TicTacToe")
 {
 	TicTacToe game;
-	game.start_game("X")
+	game.start_game("X");
 
 	game.mark_board(1);
 	REQUIRE(game.game_over() == false);
@@ -26,7 +26,7 @@ TEST_CASE("test TicTacToe")
 	game.mark_board(7);
 	REQUIRE(game.game_over() == false);
 	game.mark_board(8);
-	REQUIRE(game.game_over() == True);
+	REQUIRE(game.game_over() == true);
 	game.mark_board(9);
 	REQUIRE(game.game_over() == false);
 }

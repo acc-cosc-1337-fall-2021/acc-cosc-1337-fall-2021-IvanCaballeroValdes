@@ -24,7 +24,7 @@ std::string TicTacToe::get_player()const
     return player;
 }
 
-void TicTacToe::display_board()
+void TicTacToe::display_board() const
 {
     for(std::size_t i=0; i < pegs.size(); i+=3)
     {
@@ -32,7 +32,7 @@ void TicTacToe::display_board()
     }
 }
 
-void set_next_player()
+void TicTacToe::set_next_player()
 {
     if(player == "X")
     {
@@ -46,7 +46,7 @@ void set_next_player()
 
 bool TicTacToe::check_board_full()
 {
-    for(std::size_t i=0, i < pegs.size(); i++)
+    for(std::size_t i=0; i < pegs.size(); i++)
     {
         if(pegs[i] == " ")
         {
@@ -60,6 +60,6 @@ void TicTacToe::clear_board()
 {
     for(auto& peg: pegs)
     {
-        pegs = " ";
+        peg = " ";
     }
 }
