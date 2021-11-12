@@ -36,7 +36,7 @@ string get_dna_complement(string dna)
     for(int i=0; i<dna.size(); i++)
     {
         letter=(dna[i]);
-        complement.append(letter);
+        complement.push_back(letter);
     }
     return complement;
 }

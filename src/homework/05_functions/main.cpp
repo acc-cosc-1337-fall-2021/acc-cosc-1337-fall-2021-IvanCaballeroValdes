@@ -20,7 +20,7 @@ int main()
 		cout<<"Enter choice: ";
 		cin>>choice;
 		
-	} while ( choice ! = 3);
+	} while ( choice != 3);
 	
 	return 0;
 }
