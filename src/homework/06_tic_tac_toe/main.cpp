@@ -1,8 +1,6 @@
 #include "tic_tac_toe.h"
-#include <iostream>
-#include <string>
 
-using std::cin; using std::cout; using std::string;
+using std::cin; using::cout; using std::string
 
 int main() 
 {
@@ -11,6 +9,11 @@ int main()
 	TicTacToe game;
 	do
 	{
+		while(!(first_player == "X" || first_player == "O"))
+		{
+			cout<<"Enter first player: ";
+			cin>>first_player;
+		}
 		
 		cout<<"Enter first player: ";
 		cin>>first_player;
@@ -18,14 +21,21 @@ int main()
 
 		while(game.game_over() == false)
 		{
-			cout<<"Enter a position from 1-9: ";
-			cin>>position;
+			while(position < 1 || position > 9)
+			{
+				cout<<"Enter a position from 1-9: ";
+				cin>>position;
+
+			}
+			
 			game.mark_board(position);
-			game.display_board();
+			game.displey_board();
+			position = 0;
 		}
+		first_player ="Z";
 		cout<<"Do you wnat to quit? enter N";
 		cin>>choice;
 	}
-	while(choice == 'N');
+	while(choice == 'N')
 	return 0;
 }
