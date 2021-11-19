@@ -2,7 +2,10 @@
 #include "catch.hpp"
 #include "tic_tac_toe.h"
 #include "tic_tac_toe_manager.h"
-
+#include "tic_tac_toe_3.h"
+#include "tic_tac_toe_4.h"
+using std::unique_ptr;
+using std::make_unique;
 TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
 }
@@ -154,39 +157,39 @@ TEST_CASE("Test win by third column", "[X wins third column]")
 TEST_CASE("Test tic tac toe manager get winner count")
 {
 	TicTacToeManager manager;
-	TicTacToe board;
-	board.start_game("X");
-	board.mark_board(3);//X
-	board.mark_board(1);//O
-	board.mark_board(6);//X
-	board.mark_board(4);//O
-	board.mark_board(9);//X
-	REQUIRE(board.game_over() == true);
-	manager.save_game(board);
+	unique_ptr<TicTacToe> game = make_unique<TicTacToe3>();
+	game->start_game("X");
+	game->mark_board(3);//X
+	game->mark_board(1);//O
+	game->mark_board(6);//X
+	game->mark_board(4);//O
+	game->mark_board(9);//X
+	REQUIRE(game.game_over() == true);
+	manager.save_game(game);
 
-	TicTacToe board1;
-	board1.start_game("O");
-	board1.mark_board(2);//X
-	board1.mark_board(1);//O
-	board1.mark_board(5);//X
-	board1.mark_board(4);//O
-	board1.mark_board(8);//X
-	REQUIRE(board.game_over() == true);
-	manager.save_game(board1);
+	game = make_unique<TicTacToe3>();
+	game->start_game("O");
+	game->mark_board(2);//X
+	game->mark_board(1);//O
+	game->mark_board(5);//X
+	game->mark_board(4);//O
+	game->mark_board(8);//X
+	REQUIRE(game.game_over() == true);
+	manager.save_game(game);
 
-	TicTacToe game;
+	game = make_unique<TicTacToe3>();
 	game.start_game("X")
 
-	game.mark_board(1);
-	game.mark_board(2);
-	game.mark_board(3);
-	game.mark_board(4);
-	game.mark_board(5);
-	game.mark_board(6);
-	game.mark_board(7);
-	game.mark_board(8);
-	game.mark_board(9);
-	game.game_over();
+	game->mark_board(1);
+	game->mark_board(2);
+	game->mark_board(3);
+	game->mark_board(4);
+	game->mark_board(5);
+	game->mark_board(6);
+	game->mark_board(7);
+	game->mark_board(8);
+	game->mark_board(9);
+	game->game_over();
 	manager.save_game(game);
 
 	int o, x, t;
