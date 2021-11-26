@@ -7,6 +7,7 @@ class TicTacToe3 : public TicTacToe
 {
 public:
     TicTacToe3(): TicTacToe(3){}
+    TicTacToe(std::vector<std::string>p, std::string win):TicTacToe3(p, win){}
 private:
     bool check_diagonal_win() override;
     bool check_row_win() override;
